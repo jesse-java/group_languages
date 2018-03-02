@@ -28,4 +28,10 @@ public class GroupLanguageService {
             return null;
         }
     }
+
+    public void addLanguage(Language language) {
+        languages.add(language);
+    }
+
+
 }

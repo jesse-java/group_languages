@@ -1,8 +1,18 @@
 package com.naldojesse.group_languages.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Language implements java.io.Serializable{
+
+    @Size(min=2, max=20)
     private String name;
+
+    @Size(min=2, max=20)
     private String creator;
+
+    @NotEmpty(message="Version cannot be empty")
     private String version;
 
     public Language() {
