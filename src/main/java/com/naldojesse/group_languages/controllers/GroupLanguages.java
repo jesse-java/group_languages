@@ -1,18 +1,21 @@
 package com.naldojesse.group_languages.controllers;
+
 import com.naldojesse.group_languages.models.Language;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import com.naldojesse.group_languages.services.GroupLanguageService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.SessionAttributes;
-//import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GroupLanguages {
+
+    private final GroupLanguageService languageService;
+    public GroupLanguages(GroupLanguageService languageService) {
+        this.languageService = languageService;
+    }
+
 
     @RequestMapping("/")
     public String index()  {
@@ -21,12 +24,11 @@ public class GroupLanguages {
 
     @RequestMapping("/languages")
     public String languages(Model model) {
-        List<Language> languages = new ArrayList<Language>(Arrays.asList(
-
-        ));
-
-
-        return "index.jsp";
+        List<Language> languages = languageService.allLanguages();
+        model.addAttribute("languages", languages);
+        return "languages.jsp";
     }
+
+
 
 }

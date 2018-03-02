@@ -10,7 +10,14 @@
         <th>Action</th>
     </header>
     <tbody>
-    
+        <c:forEach items="${languages}" var="language">
+            <tr>
+                <td><c:out value="${language.name}"/></td>
+                <td><c:out value="${language.creator}"/></td>
+                <td><c:out value="${language.version}"/></td>
+                <td>Edit - Delete</td>
+            </tr>
+        </c:forEach>
     </tbody>
 </table>
 
