@@ -20,4 +20,12 @@ public class GroupLanguageService {
     public List<Language> allLanguages() {
         return languages;
     }
+
+    public Language findLanguageByIndex(int index) {
+        if (index < languages.size()) {
+            return languages.get(index);
+        } else {
+            return null;
+        }
+    }
 }

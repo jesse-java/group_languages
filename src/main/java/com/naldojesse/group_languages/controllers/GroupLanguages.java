@@ -2,6 +2,7 @@ package com.naldojesse.group_languages.controllers;
 
 import com.naldojesse.group_languages.models.Language;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import com.naldojesse.group_languages.services.GroupLanguageService;
@@ -29,6 +30,11 @@ public class GroupLanguages {
         return "languages.jsp";
     }
 
-
+    @RequestMapping("/languages/{index}")
+    public String findLanguageByIndex(Model model, @PathVariable("index") int index) {
+        Language language = languageService.findLanguageByIndex(index);
+        model.addAttribute("language", language);
+        return "view.jsp";
+    }
 
 }

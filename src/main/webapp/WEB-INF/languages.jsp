@@ -10,12 +10,12 @@
         <th>Action</th>
     </header>
     <tbody>
-        <c:forEach items="${languages}" var="language">
+        <c:forEach items="${languages}" var="language" varStatus="loop">
             <tr>
-                <td><c:out value="${language.name}"/></td>
+                <td><a href="<c:url value="/languages/${loop.index}"/>"><c:out value="${language.name}"/></a></td>
                 <td><c:out value="${language.creator}"/></td>
                 <td><c:out value="${language.version}"/></td>
-                <td>Edit - Delete</td>
+                <%--<td><a href="<c:url value="/languages/${language.loop}"/>">Edit</a></td>--%>
             </tr>
         </c:forEach>
     </tbody>
