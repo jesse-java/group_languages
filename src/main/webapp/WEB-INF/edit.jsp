@@ -7,7 +7,8 @@
 <body>
 <h1>Editing <c:out value="${language.name}"/></h1>
 
-<form:form method="POST" action="/languages/edit/${language_id}" modelAttribute="language">
+<form:form method="POST" action="/languages/edit/${language.id}" modelAttribute="language">
+    <form:hidden path="id"/>
     <fieldset>
         <legend>Editing</legend>
         <form:label path="name">Name

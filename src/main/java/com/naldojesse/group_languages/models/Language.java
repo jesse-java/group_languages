@@ -4,7 +4,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -68,6 +67,9 @@ public class Language implements java.io.Serializable{
     public void setVersion(String version) {
         this.version = version;
     }
+
+    public Long getId() {return id;}
+
 
     @PrePersist
     protected void onCreate() {
